@@ -1,0 +1,476 @@
+:root {
+    --menu-title: #fb8014e4;
+    --hover-title: #ff7700;
+    --color-highlight: #ff4800;
+    --background-color: #000000;
+    --forground-color: #ffffff;
+    --darkgrey: #151515;
+    --lightgrey: #292929;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Tiny5", sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--forground-color);
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 4rem;
+}
+
+p {
+    line-height: 1.5rem;
+}
+
+p::selection,
+h1::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection {
+    background: var(--color-highlight);
+    color: var(--lightgrey);
+}
+
+h2::selection {
+    background-color: var(--color-highlight);
+    color: var(--forground-color);
+}
+
+.underlay {
+    position: fixed;
+    background: var(--darkgrey);
+    inset: 0;
+    opacity: 0.4;
+}
+
+header,
+main,
+footer {
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+}
+
+header h1 {
+    color: var(--forground-color);
+    font-weight: 600;
+}
+
+header h1 img {
+    height: 25px;
+    aspect-ratio: 1 / 1;
+    vertical-align: -2px;
+    margin-right: 2px;
+    margin-left: -2px;
+}
+
+header h4 {
+    font-weight: 400;
+}
+
+header nav {
+    font-size: 0.9rem;
+    gap: 1rem;
+    display: none;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header a span {
+    text-decoration: underline;
+}
+
+header i {
+    font-size: 1.5rem;
+    color: #6b6b6b;
+    transition-duration: 200ms;
+}
+
+header i:hover {
+    color: var(--forground-color);
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    z-index: 20;
+}
+
+.sticky-header h2 {
+    position: relative;
+    z-index: 2;
+}
+
+.sticky-header::before {
+    content: '';
+    position: absolute;
+    inset: 0 -2rem;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+.light-text {
+    color: var(--menu-title);
+}
+
+.light-text:hover {
+    color: var(--hover-title);
+    text-shadow:
+        0 0 2px var(--hover-title),
+        0 0 5px var(--color-highlight),
+        0 0 10px var(--color-highlight),
+        0 0 20px var(--color-highlight),
+        0 0 40px var(--color-highlight);
+}
+
+.light-text::selection {
+    color: var(--forground-color);
+    background-color: var(--color-highlight);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+section h2 {
+    color: var(--menu-title);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+}
+
+.skills-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.skills-icons>div:hover {
+    transition-duration: 400ms;
+    color: var(--hover-title);
+    text-shadow:
+        0 0 20px var(--hover-title),
+        0 0 40px var(--hover-title),
+        0 0 80px var(--hover-title);
+}
+
+.experience-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.experience-card {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0.5rem;
+    border: 2px solid var(--menu-title);
+    padding: 1rem;
+    background: #fb551410;
+}
+
+.experience-card a {
+    text-decoration: none;
+}
+
+.tenure {
+    opacity: 0.6;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.ancher-text {
+    color: var(--forground-color);
+    text-decoration: none;
+    transition-duration: 200ms;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.ancher-text:hover {
+    color: var(--hover-title);
+}
+
+.follow-link-arrow {
+    display: flex;
+    position: relative;
+    font-weight: bold;
+    font-size: 15px;
+    align-items: first baseline;
+    rotate: -45deg;
+    transition: transform 0.25s ease;
+}
+
+.ancher-text:hover .follow-link-arrow {
+    transform: translate(4px);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tag-container {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    clear: both;
+    margin-top: 0.3rem;
+}
+
+.tag {
+    font-size: 0.9rem;
+    border: 1px solid var(--color-highlight);
+    padding: 0px 3px;
+    border-radius: 0.7rem;
+    background: var(--color-highlight);
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.project-content a {
+    text-decoration: none;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.project-card-body img {
+    max-width: 128px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--forground-color);
+    border-radius: 0.4rem;
+    object-fit: cover;
+    float: left;
+    margin: 0 0.75rem 0.5rem 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: end;
+}
+
+footer p {
+    color: var(--lightgrey);
+    font-size: 0.9rem;
+    min-height: 30px;
+    width: 180px;
+}
+
+.scroll-to-top {
+    font-size: 25px;
+    text-decoration: none;
+    color: var(--forground-color);
+    transition-duration: 300ms;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-10px);
+    color: var(--hover-title);
+}
+
+@media (min-width: 640px) {
+    header nav {
+        display: flex;
+        font-size: 1.1rem;
+        gap: 1rem;
+    }
+
+    .experience-card {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card-body {
+        grid-column: span 3 / span 3;
+    }
+
+    .project-card {
+        display: grid;
+        grid-template-columns: 128px 1fr;
+        column-gap: 1rem;
+        align-items: start;
+    }
+
+    .project-card-body {
+        display: contents;
+    }
+
+    .project-card-body img {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+
+        width: 128px;
+        height: 128px;
+        margin: 0;
+
+        object-fit: cover;
+        border-radius: 0.4rem;
+        background-color: var(--forground-color);
+    }
+
+    .project-header {
+        grid-column: 2;
+    }
+
+    .project-card-body>p {
+        grid-column: 2;
+    }
+
+    .project-card-body .tag-container {
+        grid-column: 2;
+    }
+
+    .project-card>.tenure {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    footer {
+        flex-direction: row;
+    }
+
+    footer a {
+        order: 0;
+    }
+
+    footer p {
+        order: 1;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        grid-template-columns: 2fr 5fr;
+        align-items: start;
+    }
+
+    header {
+        grid-column: 1;
+        position: sticky;
+        padding-top: 10rem;
+        top: 2rem;
+    }
+
+    main {
+        grid-column: 2;
+    }
+
+    .sticky-header {
+        position: relative;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header h1 img {
+        height: 2rem;
+    }
+
+    header h4 {
+        font-size: 1.2rem;
+    }
+
+    header p {
+        max-width: 300px;
+    }
+
+    header nav {
+        font-size: 1.1rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    header nav a {
+        transition: transform 400ms ease;
+    }
+
+    header nav a:hover {
+        transform: translate(5px);
+    }
+
+    .social-link {
+        gap: 1.4rem;
+    }
+
+    .social-link i{
+        font-size: 2rem;
+        margin-top: auto;
+    }
+
+    footer {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    footer p {
+        grid-column: 5;
+    }
+
+    footer i {
+        grid-column: 1;
+    }
+}
